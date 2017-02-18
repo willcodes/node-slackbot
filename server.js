@@ -31,8 +31,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.post('/getQuote', (res,req) => {
-    console.log(req);
+app.post('/getQuote', (req,res) => {
+    console.log(req.body);
 });
 
 
