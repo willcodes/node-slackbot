@@ -38,8 +38,26 @@ app.post('/getQuote', (request, result) => {
     let text = request.text;
     let theQuote = '';
 
-    if (text === null || text === undefined || text === '') {
-        text = 'random';
+    switch(text) {
+        case 'george':
+        text = 'author/george/random';
+        break
+
+        case 'jerry':
+        text = 'author/jerry/random';
+        break
+
+        case 'elaine':
+        text = 'author/elaine/random';
+        break
+
+        case 'kramer':
+        text = 'author/kramer/random';
+        break
+
+        default:
+        text = 'random'
+        break
     }
 
     fetch('http://seinfeld-api.willcodes.co/' + text)
