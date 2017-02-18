@@ -2,7 +2,7 @@
 
 //create your own config.js file that exports an object with your API key and BOT name
 
-const config = require('./config').CONFIG,
+const config = require('./config'),
       express = require('express'),
       app = express(),
       path = require('path'),
