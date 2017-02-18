@@ -36,6 +36,7 @@ app.use(function (req, res, next) {
 app.post('/getQuote', (request, result) => {
 
     let text = request.text;
+    console.log(text);
     let theQuote = '';
 
     switch(text) {
