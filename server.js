@@ -7,6 +7,7 @@ const config = require('./config'),
       app = express(),
       path = require('path'),
       fs = require('fs'),
+      bodyParser = require('body-parser'),
       https = require('https'),
       SlackBot = require('slackbots'),
       request = require("request"),
@@ -17,7 +18,9 @@ const bot = new SlackBot({
     name: config.BOT_NAME
 });
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 app.use(bodyParser.json());
 
