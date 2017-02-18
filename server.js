@@ -10,14 +10,12 @@ const config = require('./config').CONFIG,
       https = require('https'),
       SlackBot = require('slackbots'),
       request = require("request"),
-      port = process.env.PORT || 3000;
+      port = process.env.PORT || 3001;
       
 const bot = new SlackBot({
     token: config.API_KEY,
     name: config.BOT_NAME
 });
-
-let confirmation = ['yes', 'yes i am', 'yeah', 'of course', 'yup', 'mhm', 'ya', 'ye'];
 
 let userData = {};
 
