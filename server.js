@@ -11,12 +11,20 @@ const config = require('./config'),
       https = require('https'),
       SlackBot = require('slackbots'),
       request = require("request"),
+      fetch = require('node-fetch'),
       port = process.env.PORT || 3001;
       
 const bot = new SlackBot({
     token: config.API_KEY,
     name: config.BOT_NAME
 });
+
+let getQuotes = (url) => {
+    
+    return fetch(url)
+    .then(res => res.text())
+    .then(body => res.send(body));
+};
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -32,8 +40,11 @@ app.use(function (req, res, next) {
 });
 
 app.post('/getQuote', (req,res) => {
-    console.log(req.body);
-        res.send("hello, this is working!!!");
+    let text = req.text;
+    switch(text) {
+        case '':
+        getQuotes('http://seinfeld-api.willcodes.co/random');
+    }
 });
 
 
