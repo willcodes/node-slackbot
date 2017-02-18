@@ -20,10 +20,14 @@ const bot = new SlackBot({
 });
 
 let getQuotes = (url) => {
+
+    let result = '';
     
-    return fetch(url)
+    fetch(url)
     .then(res => res.text())
-    .then(body => res.send(body));
+    .then(body => result = body);
+
+    return result;
 };
 
 app.use(bodyParser.urlencoded({
@@ -41,10 +45,13 @@ app.use(function (req, res, next) {
 
 app.post('/getQuote', (req,res) => {
     let text = req.text;
-    switch(text) {
-        case '':
-        getQuotes('http://seinfeld-api.willcodes.co/random');
-    }
+
+    res.send(getQuotes('http://seinfeld-api.willcodes.co/random'));
+
+    // switch(text) {
+    //     case '':
+    //     getQuotes('http://seinfeld-api.willcodes.co/random');
+    // }
 });
 
 
