@@ -25,23 +25,6 @@ bot.on('message', function(data) {
     // all ongoing events 
     console.log(data); 
 
-    if (data.text) {
-
-        let triggerWords = ['hey', 'hi', 'hello', 'yo', 'dude', 'please', 'can'];
-
-        if (data.text.indexOf('kitty') > -1) {
-            bot.postMessageToChannel('general', ':cat:');
-        }
-
-        if (triggerWords.indexOf(data.text.toLowerCase()) >= 0 && data.username!=='chickenwing'){
-            bot.postMessageToChannel('general', 'Meowww are you talking to me?! :smiley_cat:');
-            userData.activeUser = data.user;
-        }
-
-        if (confirmation.indexOf(data.text.toLowerCase()) >= 0 && data.user===userData.activeUser){
-            bot.postMessageToChannel('general', 'Oh, well I wasnt talking to YOU. :cat2:');
-        }
-    }
 });
 
 
