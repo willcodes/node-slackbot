@@ -33,6 +33,13 @@ app.use(function (req, res, next) {
 
 app.post('/getQuote', (req,res) => {
     console.log(req.body);
+    if(err) {
+        throw err;
+        res.send(res.status);
+    }
+    else {
+        res.send("hello, this is working!!!");
+    }
 });
 
 
