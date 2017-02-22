@@ -65,7 +65,7 @@ app.post('/getQuote', (request, result) => {
         .then(res => res.json())
         .then(body => {
             theQuote = body.quote + ' --' + body.author
-            result.send(theQuote);
+            result.send({ "text": theQuote, "response_type": "in_channel" });
         });
 
 });
